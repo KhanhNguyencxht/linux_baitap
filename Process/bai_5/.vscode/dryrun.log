@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/khanh/Desktop/Linux/Process/bai_5'
+gcc -o process main.c
+make: Leaving directory '/home/khanh/Desktop/Linux/Process/bai_5'
+ 
