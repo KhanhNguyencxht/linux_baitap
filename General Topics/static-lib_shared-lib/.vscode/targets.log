@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sat Dec  2 07:25:59 2023
+# Make data base, printed on Sat Dec  2 07:25:50 2023
 
 # Variables
 
@@ -43,7 +43,7 @@ GDMSESSION = ubuntu
 # environment
 XMODIFIERS = @im=ibus
 # makefile
-CURDIR := /home/khanh/Desktop/Linux/File system
+CURDIR := /home/khanh/Desktop/Linux/General Topics/static-lib_shared-lib
 # makefile
 SHELL = /bin/sh
 # environment
@@ -62,12 +62,19 @@ XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 SNAP_INSTANCE_NAME = code
 # environment
 SNAP_ARCH = amd64
-# makefile
-MAKEFILE_LIST := 
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# makefile (from 'Makefile', line 10)
+LIB_DIR := ./lib
 # automatic
+ 
 @F = $(notdir $@)
+# makefile (from 'Makefile', line 12)
+LIB_STATIC := ./lib/static
 # environment
 GIO_LAUNCHED_DESKTOP_FILE = /var/lib/snapd/desktop/applications/code_code.desktop
+# makefile (from 'Makefile', line 3)
+NAME_SHARED := KH_SHARED
 # environment
 USERNAME = khanh
 # environment
@@ -124,8 +131,12 @@ GIO_LAUNCHED_DESKTOP_FILE_PID = 8246
 DISPLAY = :0
 # environment
 GTK_IM_MODULE = ibus
+# makefile (from 'Makefile', line 4)
+NAME_STATIC := KH_SHARED
 # environment
-PWD = /home/khanh/Desktop/Linux/File system
+PWD = /home/khanh/Desktop/Linux/General Topics/static-lib_shared-lib
+# makefile (from 'Makefile', line 17)
+INC_FLAGS := -I ./inc
 # environment
 XDG_SEAT = seat0
 # environment
@@ -134,6 +145,8 @@ GTK_PATH = /snap/code/146/usr/lib/x86_64-linux-gnu/gtk-3.0
 SSH_AGENT_PID = 1565
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# makefile (from 'Makefile', line 8)
+INC_DIR := ./inc
 # environment
 GTK_MODULES = gail:atk-bridge
 # environment
@@ -182,6 +195,8 @@ QT_IM_MODULE = xim
 SNAP_USER_DATA = /home/khanh/snap/code/146
 # environment
 SHLVL = 1
+# makefile (from 'Makefile', line 21)
+CC := gcc
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
 # environment
@@ -191,9 +206,11 @@ USER = khanh
 # environment
 SNAP_REVISION = 146
 # makefile
-.DEFAULT_GOAL := 
+.DEFAULT_GOAL := mk_objs_static
 # environment
 XDG_CURRENT_DESKTOP = Unity
+# makefile (from 'Makefile', line 19)
+NAME := HELLO_1
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -206,6 +223,8 @@ MAKE_COMMAND := make
 GTK_EXE_PREFIX = /snap/code/146/usr
 # environment
 VSCODE_IPC_HOOK = /run/user/1000/vscode-f275327e-1.84-main.sock
+# makefile (from 'Makefile', line 6)
+CURRENT_DIR := .
 # environment
 BAMF_DESKTOP_FILE_HINT = /var/lib/snapd/desktop/applications/code_code.desktop
 # makefile
@@ -216,6 +235,8 @@ MFLAGS = -pqrR
 *D = $(patsubst %/,%,$(dir $*))
 # environment
 GTK_IM_MODULE_FILE = /home/khanh/snap/code/common/.cache/immodules/immodules.cache
+# makefile (from 'Makefile', line 14)
+OBIS_DIR := ./objs
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
@@ -232,12 +253,18 @@ TEXTDOMAINDIR = /usr/share/locale/
 MAKEFILES := 
 # environment
 SNAP_COOKIE = 8eb7aCcCAaIFKAwcElv5VZUhQSdw7Ki15JgiliY2B5szKCx-SfG1
+# makefile (from 'Makefile', line 15)
+SRC_DIR := ./src
 # automatic
 <F = $(notdir $<)
 # environment
 SNAP_NAME = code
+# makefile (from 'Makefile', line 7)
+BIN_DIR := ./bin
 # environment
 LC_ALL = C
+# makefile (from 'Makefile', line 11)
+LIB_SHARED := ./lib/shared
 # environment
 QT4_IM_MODULE = xim
 # environment
@@ -265,7 +292,7 @@ LANG = C
 # environment
 VSCODE_PID = 8290
 # variable set hash-table stats:
-# Load=126/1024=12%, Rehash=0, Collisions=19/148=13%
+# Load=139/1024=14%, Rehash=0, Collisions=27/172=16%
 
 # Pattern-specific Variable Values
 
@@ -273,15 +300,14 @@ VSCODE_PID = 8290
 
 # Directories
 
-# . (device 2049, inode 1318470): 5 files, no impossibilities.
+# . (device 2049, inode 1318484): 11 files, no impossibilities.
 
-# 5 files, no impossibilities in 1 directories.
+# 11 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
- 
 # Files
 
 # Not a target:
@@ -291,19 +317,60 @@ all:
 #  File does not exist.
 #  File has not been updated.
 
+.PHONY: mk_objs_static
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 1):
+	 mk_static; all_static; mk_objs_shared; mk_shared; all_shared; 
+
+mk_static:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 29):
+	ar rcs $(LIB_STATIC)/lib$(NAME_STATIC).a $(OBIS_DIR)/matht.o  $(OBIS_DIR)/hello.o
+
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  File does not exist.
+#  Last modified 2023-12-02 07:23:20.32811883
 #  File has been updated.
-#  Failed to be updated.
+#  Successfully updated.
 
-# Not a target:
-makefile:
-#  Implicit rule search has been done.
+mk_shared:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	$(CC) -shared $(OBIS_DIR)/hello.o $(OBIS_DIR)/matht.o -o $(LIB_SHARED)/lib$(NAME_SHARED).so
+
+all_static:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 33):
+	$(CC) $(OBIS_DIR)/main.o -L$(LIB_STATIC) -l$(NAME_STATIC) -o $(BIN_DIR)/use-static-linked
+
+mk_objs_static:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 24):
+	$(CC) -c $(CURRENT_DIR)/main.c -o $(OBIS_DIR)/main.o $(INC_FLAGS)
+	$(CC) -c $(SRC_DIR)/hello.c -o $(OBIS_DIR)/hello.o $(INC_FLAGS)
+	$(CC) -c $(SRC_DIR)/matht.c -o $(OBIS_DIR)/matht.o $(INC_FLAGS)
+
+mk_objs_shared:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 37):
+	$(CC) -c $(CURRENT_DIR)/main.c -o $(OBIS_DIR)/main.o $(INC_FLAGS)
+	$(CC) -c -fPIC $(SRC_DIR)/hello.c -o $(OBIS_DIR)/hello.o $(INC_FLAGS)
+	$(CC) -c -fPIC $(SRC_DIR)/matht.c -o $(OBIS_DIR)/matht.o $(INC_FLAGS)
 
 # Not a target:
 .DEFAULT:
@@ -311,27 +378,37 @@ makefile:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-GNUmakefile:
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Failed to be updated.
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 48):
+	rm -rf $(OBIS_DIR)/*
+	rm -rf $(LIB_SHARED)/*
+	rm -rf $(LIB_STATIC)/*
+	rm -rf $(BIN_DIR)/*
+
+all_shared:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 45):
+	$(CC) $(OBIS_DIR)/main.o -L$(LIB_SHARED) -l$(NAME_SHARED) -o $(BIN_DIR)/use-shared-library
 
 # files hash-table stats:
-# Load=6/1024=1%, Rehash=0, Collisions=0/15=0%
+# Load=12/1024=1%, Rehash=0, Collisions=2/24=8%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 13 / storage = 110 B / avg = 8 B
-# current buf: size = 8162 B / used = 110 B / count = 13 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 200 B / avg = 8 B
+# current buf: size = 8162 B / used = 200 B / count = 24 / avg = 8 B
 
-# strcache performance: lookups = 16 / hit rate = 18%
+# strcache performance: lookups = 37 / hit rate = 35%
 # hash-table stats:
-# Load=13/8192=0%, Rehash=0, Collisions=1/16=6%
-# Finished Make data base on Sat Dec  2 07:25:59 2023
+# Load=24/8192=0%, Rehash=0, Collisions=1/37=3%
+# Finished Make data base on Sat Dec  2 07:25:50 2023
 
  
