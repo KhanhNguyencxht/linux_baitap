@@ -1,5 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/khanh/Desktop/Linux/Process/bai_6'
-gcc -o process_wait main.c
-make: Leaving directory '/home/khanh/Desktop/Linux/Process/bai_6'
- 
